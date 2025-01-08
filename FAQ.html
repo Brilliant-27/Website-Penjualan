@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Toko Tiga Roda</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-50">
+    <!-- Header -->
+<header class="bg-blue-600 text-white">
+    <nav>
+      <div class="container mx-auto flex items-center justify-between p-2">
+        <!-- Logo and Title Section -->
+        <a href="Beranda.html" class="flex items-center space-x-4">
+          <img src="aset/logo.png" alt="Logo Toko Tiga Roda" class="w-12 h-auto">
+          <div class="text-lg font-bold">TOKO TIGA RODA</div>
+        </a>
+  
+        <div class="flex items-center space-x-4">
+          <!-- Menu Button (Mobile) -->
+          <button id="menu-button" class="block md:hidden text-white focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+  
+          <!-- User Icon with Dropdown (Mobile) -->
+          <div class="relative block md:hidden">
+            <button id="user-menu-button-mobile" class="text-white focus:outline-none">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+              </svg>
+            </button>
+            <div id="user-dropdown-mobile" class="hidden absolute right-0 mt-2 w-48 bg-blue-500 text-white rounded-md shadow-lg z-20">
+              <a href="Login.html" class="block px-4 py-2 hover:bg-blue-600">Logout</a>
+            </div>
+          </div>
+  
+          <!-- Cart Icon (Mobile) -->
+          <div class="relative block md:hidden">
+            <a href="Keranjang.html">
+              <button id="cart-button-mobile" class="text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l3.4-8H6.6M7 13a3 3 0 1 0 3 3M17 13a3 3 0 1 0 3 3" />
+                </svg>
+                <span id="cart-count-mobile" class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+              </button>
+            </a>
+          </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <ul id="mobile-menu" class="hidden md:hidden flex-col space-y-2 bg-blue-500 text-white p-4 absolute left-0 right-0 top-14 z-50">
+          <li><a href="Beranda.html" class="block px-4 py-2 hover:bg-blue-600">Beranda</a></li>
+          <li><a href="Produk.html" class="block px-4 py-2 hover:bg-blue-600">Produk</a></li>
+          <li><a href="prosedurPembelian.html" class="block px-4 py-2 hover:bg-blue-600">Prosedur Pembelian</a></li>
+          <li><a href="FAQ.html" class="block px-4 py-2 hover:bg-blue-600">FAQ</a></li>
+          <li><a href="HubungiKami.html" class="block px-4 py-2 hover:bg-blue-600">Hubungi Kami</a></li>
+        </ul>
+  
+        <!-- Menu Items (Desktop) -->
+        <ul id="menu-items" class="hidden md:flex items-center space-x-4">
+          <li><a href="Beranda.html" class="text-gray-200 hover:text-white">Beranda</a></li>
+          <li><a href="Produk.html" class="text-gray-200 hover:text-white">Produk</a></li>
+          <li><a href="prosedurPembelian.html" class="text-gray-200 hover:text-white">Prosedur Pembelian</a></li>
+          <li><a href="FAQ.html" class="text-gray-200 hover:text-white">FAQ</a></li>
+          <li><a href="HubungiKami.html" class="text-gray-200 hover:text-white">Hubungi Kami</a></li>
+  
+          <!-- User Dropdown (Desktop) -->
+          <li class="relative">
+            <button id="user-menu-button" class="flex items-center space-x-2 focus:outline-none">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+              </svg>
+              <span class="ml-2">User</span>
+            </button>
+            <div id="user-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white text-gray-700 rounded-md shadow-lg z-20">
+              <hr class="border-gray-200">
+              <a href="login.html" class="block px-4 py-2 hover:bg-gray-100">Logout</a>
+            </div>
+          </li>
+  
+          <!-- Cart Icon (Desktop) -->
+          <li class="relative">
+            <a href="Keranjang.html">
+              <button id="cart-button" class="flex items-center space-x-2 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l3.4-8H6.6M7 13a3 3 0 1 0 3 3M17 13a3 3 0 1 0 3 3" />
+                </svg>
+                <span id="cart-count" class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+              </button>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+    <script>
+      const menuButton = document.getElementById('menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      menuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+
+      const userMenuButton = document.getElementById('user-menu-button');
+      const userDropdown = document.getElementById('user-dropdown');
+      const userMenuButtonMobile = document.getElementById('user-menu-button-mobile');
+      const userDropdownMobile = document.getElementById('user-dropdown-mobile');
+      // Toggle user dropdown on desktop
+      userMenuButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        userDropdown.classList.toggle('hidden');
+      });
+
+      // Toggle user dropdown on mobile
+      userMenuButtonMobile.addEventListener('click', (e) => {
+        e.stopPropagation();
+        userDropdownMobile.classList.toggle('hidden');
+      });
+
+      // Close dropdown if clicked outside
+      window.addEventListener('click', () => {
+        userDropdown.classList.add('hidden');
+        userDropdownMobile.classList.add('hidden');
+      });
+      const cartButton = document.getElementById('cart-button');
+    const cartButtonMobile = document.getElementById('cart-button-mobile');
+    const cartCount = document.getElementById('cart-count');
+    const cartCountMobile = document.getElementById('cart-count-mobile');
+
+    // Update jumlah keranjang
+    const updateCartCount = (count) => {
+    cartCount.textContent = count;
+    cartCountMobile.textContent = count;
+
+    // Animasi untuk keranjang
+    cartCount.classList.add('animate-bounce');
+    cartCountMobile.classList.add('animate-bounce');
+    setTimeout(() => {
+        cartCount.classList.remove('animate-bounce');
+        cartCountMobile.classList.remove('animate-bounce');
+    }, 500);
+    };
+
+    // Simulasi update jumlah item
+    cartButton.addEventListener('click', () => updateCartCount(parseInt(cartCount.textContent)));
+    cartButtonMobile.addEventListener('click', () => updateCartCount(parseInt(cartCountMobile.textContent)));
+
+    </script>
+
+    
+    <section class="py-12">
+      <div class="container mx-auto px-4">
+        <h1 class="text-3xl font-bold text-gray-800 text-center mb-8">Frequently Asked Questions</h1>
+
+        <div class="space-y-4">
+
+          <h2 class="text-xl font-bold pl-10">Semen</h2>
+
+          <!-- Pertanyaan semen 1 -->
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <button class="w-full text-left p-4 text-gray-700 font-medium hover:bg-gray-100 focus:outline-none focus:bg-gray-100" onclick="toggleAnswer('answer1')">
+              Apakah harga yang saya bayar termasuk biaya kirim dan bongkar?
+            </button>
+            <div id="answer1" class="p-4 text-gray-600 hidden">
+              Harga yang tertera sudah termasuk biaya kirim namun TIDAK TERMASUK biaya bongkar muatan dari truk kami ke lokasi. Proses pembongkaran muatan dari truk adalah tanggung jawab pihak pembeli.
+            </div>
+          </div>
+
+          <!-- Pertanyaan semen 2 -->
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <button class="w-full text-left p-4 text-gray-700 font-medium hover:bg-gray-100 focus:outline-none focus:bg-gray-100" onclick="toggleAnswer('answer2')">
+              Bagaimana jika terjadi banjir atau hal lain yang mengakibatkan pengiriman tidak dapat dilakukan di hari pengiriman yang telah ditentukan?
+            </button>
+            <div id="answer2" class="p-4 text-gray-600 hidden">
+              Jika terjadi force majeure seperti banjir atau hal lain yang diluar kuasa kami, maka kami akan menjadwalkan ulang pesanan Anda.
+            </div>
+          </div>
+
+          <!-- Pertanyaan semen 3 -->
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <button class="w-full text-left p-4 text-gray-700 font-medium hover:bg-gray-100 focus:outline-none focus:bg-gray-100" onclick="toggleAnswer('answer3')">
+              Apakah waktu pengiriman semen bisa dilakukan setiap hari?
+            </button>
+            <div id="answer3" class="p-4 text-gray-600 hidden">
+              Pengiriman hanya dilakukan setiap hari kerja. Sabtu, Minggu dan hari libur tidak ada pengiriman semen.
+            </div>
+          </div>
+
+          <h2 class="text-xl font-bold pl-10">Ready Mix</h2>
+
+          <!-- Pertanyaan ready mix 1 -->
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <button class="w-full text-left p-4 text-gray-700 font-medium hover:bg-gray-100 focus:outline-none focus:bg-gray-100" onclick="toggleAnswer('answer4')">
+              Saya sama sekali awam tentang dunia konstruksi, bagaimana caranya untuk memesan beton/readymix?
+            </button>
+            <div id="answer4" class="p-4 text-gray-600 hidden">
+              Kami memahami tidak semua orang berkecimpung didalam dunia konstruksi, karena itu Anda dapat memilih kegunaan pembelian beton Anda, kami memberikan pilihan kemasan spesifikasi beton/readymix dengan mutu standard yang biasa dibeli oleh konsumen kami pada umumnya. Adapun kemasan spesifikasi beton yang kami berikan hanyalah bersifat saran semata bukan sebagai acuan, semuanya kembali kepada kebutuhan pengaplikasian di lapangan. Jika Anda ingin memesan spesifikasi beton diluar kemasan yang kami tawarkan, Anda dapat mengakses menu Custom.
+            </div>
+          </div>
+
+          <!-- Pertanyaan ready mix 2 -->
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <button class="w-full text-left p-4 text-gray-700 font-medium hover:bg-gray-100 focus:outline-none focus:bg-gray-100" onclick="toggleAnswer('answer5')">
+              Apa perbedaan antara mutu K 250 FA 15% slump 12 dengan K 325 NFA slump 14?
+            </button>
+            <div id="answer5" class="p-4 text-gray-600 hidden">
+              Mutu menunjukkan kekuatan beton yang terbentuk setelah beton berumur 28 hari. Mutu K250 mempunyai kekuatan untuk menahan tekanan sebesar 250 kg per m3 dimana mutu K325 mempunyai daya kuat tekan beton sebesar 325 kg per m3. FA merupakan singkatan dari fly ash yang merupakan abu hasil pembakaran batu bara. Presentase FA menunjukkan komposisi penggunaannya dibanding dengan pemakaian semen, untuk NFA artinya Non Fly Ash atau tidak menggunakan fly ash sama sekali/hanya memakai semen, dimana presentase penggunaan fly ash harus dalam kadar yang optimum, agar beton yang dihasilkan tidak mengalami reduksi kekuatan. Slump adalah suatu ukuran nilai yang dihasilkan dari pengujian sifat kekentalan adukan beton. Semakin tinggi nilainya semakin encer beton tersebut sehingga semakin lebih mudah dibentuk.
+            </div>
+          </div>
+
+          <!-- Pertanyaan ready mix 3 -->
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <button class="w-full text-left p-4 text-gray-700 font-medium hover:bg-gray-100 focus:outline-none focus:bg-gray-100" onclick="toggleAnswer('answer6')">
+              Bagaimana saya mengetahui jumlah beton/readymix yang saya perlukan?
+            </button>
+            <div id="answer6" class="p-4 text-gray-600 hidden">
+              Untuk memberikan Anda gambaran mengenai volume beton yang dibutuhkan, kami memberikan fasilitas Calculator Hitung untuk mengkalkulasi kebutuhan beton/readymix Anda pada saat Anda memilih spesifikasi beton. Adapun hasil perhitungan tersebut hanyalah berupa estimasi dan tidak dapat dijadikan sebagai patokan.
+            </div>
+          </div>
+
+          <!-- Pertanyaan ready mix 4 -->
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <button class="w-full text-left p-4 text-gray-700 font-medium hover:bg-gray-100 focus:outline-none focus:bg-gray-100" onclick="toggleAnswer('answer7')">
+              Kenapa saya butuh concrete pump?
+            </button>
+            <div id="answer7" class="p-4 text-gray-600 hidden">
+              Concrete Pump umumnya digunakan dalam pengecoran, merupakan alat untuk memindahkan beton/readymix dari truck mixer ke lokasi pengecoran, karena itu kami memilihkan ukuran Standard untuk Anda terlebih dahulu.
+            </div>
+          </div>
+
+          <!-- Pertanyaan ready mix 5 -->
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <button class="w-full text-left p-4 text-gray-700 font-medium hover:bg-gray-100 focus:outline-none focus:bg-gray-100" onclick="toggleAnswer('answer8')">
+              Bagaimana jika terjadi banjir atau hal lain yang mengakibatkan pengiriman tidak dapat dilakukan di hari pengiriman yang telah ditentukan?
+            </button>
+            <div id="answer8" class="p-4 text-gray-600 hidden">
+              Pada pembelian beton/readymix, jika terjadi force majeure seperti banjir atau hal lain yang diluar kuasa kami, maka kami akan menjadwalkan ulang pesanan Anda, namun jika pengiriman tidak dapat dilakukan karena lebar jalanan tidak cukup atau ada rintangan setinggi kurang dari 4 meter ataupun jalanan berbukit atau berlubang, maka kami akan mengembalikan uang Anda dalam waktu 14 hari kerja setelah dikurangi biaya administrasi sebesar <span class="font-semibold">Rp 35.000,00 (tiga puluh lima ribu rupiah)</span>.
+            </div>
+          </div>
+
+          <!-- Pertanyaan ready mix 6 -->
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <button class="w-full text-left p-4 text-gray-700 font-medium hover:bg-gray-100 focus:outline-none focus:bg-gray-100" onclick="toggleAnswer('answer9')">
+              Apakah saya masih bisa merubah item atau volume pesanan, jadwal kirim ataupun jumlah beton/readymix untuk setiap pengiriman?
+            </button>
+            <div id="answer9" class="p-4 text-gray-600 hidden">
+              Pesanan yang sudah dibayar tidak dapat diubah, harap Anda memeriksa kembali pesanan Anda sebelum melakukan pembayaran. Anda dapat melakukan pemesanan kembali jika ada kesalahan ataupun untuk menambah pesanan Anda. Untuk perubahan jadwal kirim dapat dilakukan paling lambat 1 (satu) hari sebelum tanggal pengiriman dengan menghubungi customer care kami di nomor <span class="font-semibold">(021) 4683 6381, (021) 4683 1111, 0811 1828 441, 0811 1828 444</span> di hari dan jam kerja kami Senin-Jumat pukul 08.00 - 17.00 WIB (tidak termasuk hari libur). 
+            </div>
+          </div>
+
+          <!-- Pertanyaan ready mix 7 -->
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <button class="w-full text-left p-4 text-gray-700 font-medium hover:bg-gray-100 focus:outline-none focus:bg-gray-100" onclick="toggleAnswer('answer10')">
+              Bagaimana saya dapat memperoleh Faktur Pajak?
+            </button>
+            <div id="answer10" class="p-4 text-gray-600 hidden">
+              Anda dapat mengklik kotak Perlu Faktur Pajak yang kami sediakan disebelah kanan bawah pada halaman Rincian Order sebelum Anda memilih Metode Pembayaran. Silahkan Anda mengisi secara lengkap dan benar Nama, No, dan Alamat sesuai NPWP serta melampirkan NPWP dan SPPKP dalam bentuk JPEG atau PDF. Dalam waktu 7 hari kerja setelah pesanan Anda dikirimkan, kami akan mengirimkan Faktur Pajak ke email yang telah terdaftar di kami. Kesalahan dalam pengetikan ataupun pemberian informasi data sesuai NPWP dan SPPKP sepenuhnya diluar tanggungjawab kami.
+            </div>
+          </div>
+
+          <!-- Pertanyaan ready mix 8 -->
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <button class="w-full text-left p-4 text-gray-700 font-medium hover:bg-gray-100 focus:outline-none focus:bg-gray-100" onclick="toggleAnswer('answer11')">
+              Apakah harga yang saya bayar sudah termasuk biaya kirim, pembongkaran atau biaya lain yang timbul selama pengecoran berlangsung?
+            </button>
+            <div id="answer11" class="p-4 text-gray-600 hidden">
+              Harga yang tertera sudah termasuk biaya kirim namun TIDAK TERMASUK biaya bongkar muatan dari truk kami ke lokasi. Segala biaya yang timbul akibat proses pengecoran berlangsung merupakan tanggung jawab pihak pembeli. Kami juga menyediakan pilihan concrete pump pada proses pembelian untuk memudahkan proses pemindahan beton dari truck mixer ke lokasi proyek.
+            </div>
+          </div>
+
+          <!-- Pertanyaan ready mix 9 -->
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <button class="w-full text-left p-4 text-gray-700 font-medium hover:bg-gray-100 focus:outline-none focus:bg-gray-100" onclick="toggleAnswer('answer12')">
+              Bagaimana jika beton yang dipesan kurang?
+            </button>
+            <div id="answer12" class="p-4 text-gray-600 hidden">
+              Apabila beton yang dipesan kurang, Anda dapat melakukan pemesanan kembali dengan mengakses Pesanan Saya kemudian klik tombol Beli Lagi. Segera lakukan pembayaran dan hubungi customer care kami di nomor <span class="font-semibold">(021) 4683 6381</span> atau <span class="font-semibold">(021) 4683 1111</span> untuk mengkonfirmasi jadwal pesanan Anda. Pengiriman untuk pemesanan sewaktu-waktu ini hanya dapat dilakukan pada hari Senin-Sabtu (tidak termasuk hari libur) dan pengiriman beton paling cepat dapat dilakukan 4 jam kedepan setelah pembayaran dikonfirmasi.
+            </div>
+          </div>
+
+          <!-- Pertanyaan ready mix 10 -->
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <button class="w-full text-left p-4 text-gray-700 font-medium hover:bg-gray-100 focus:outline-none focus:bg-gray-100" onclick="toggleAnswer('answer13')">
+              Apakah ada jaminan atau garansi mengenai volume ataupun kualitas beton?
+            </button>
+            <div id="answer13" class="p-4 text-gray-600 hidden">
+              Keluhan mengenai volume dan kualitas beton wajib disampaikan lewat email ke <span class="font-semibold">team.ecommerce@pionirbeton.co.id</span> selambat-lambatnya 2 (dua) hari setelah pelaksanaan pengecoran. Apabila dalam jangka waktu yang ditentukan tidak terdapat keluhan dari Pembeli, maka beton dianggap telah diterima dengan baik dan benar. Namun apabila kerusakan barang terjadi karena truck mixer telah tiba di lokasi proyek dan harus menunggu selama lebih dari satu jam, maka kerusakan Barang dan/atau mutu beton menjadi tanggungan Pembeli. Termasuk biaya pembuangan beton yang akan ditagihkan ke Pembeli sesuai dengan biaya yang berlaku saat itu.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      function toggleAnswer(id) {
+        const answer = document.getElementById(id);
+        if (answer.classList.contains('hidden')) {
+          answer.classList.remove('hidden');
+        } else {
+          answer.classList.add('hidden');
+        }
+      }
+    </script>
+
+      <!-- Footer -->
+      <footer class="bg-gray-100 py-12">
+        <div class="container mx-auto">
+          <!-- Title -->
+          <h4 class="text-center text-2xl font-bold text-blue-600 mb-8">Toko Tiga Roda</h4>
+
+          <!-- Grid Container -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 items-center">
+            <!-- Payment Methods -->
+            <div class="text-center">
+              <p class="text-lg font-semibold mb-4">Metode Pembayaran:</p>
+              <div class="flex justify-center space-x-4">
+                <img src="aset/ATM Bersama Logo (PNG-1080p) - FileVector69.png" alt="ATM Bersama" class="w-12 h-auto">
+                <img src="aset/ATM_PRIMA.png" alt="Prima" class="w-12 h-auto">
+                <img src="aset/Logo_ALTO_Network.png" alt="Alto" class="w-12 h-auto">
+                <img src="aset/Bank BCA Logo (PNG-720p) - FileVector69.png" alt="BCA" class="w-12 h-auto">
+            </div>
+            </div>
+
+            <!-- Social Media Links -->
+            <div class="text-center">
+              <p class="text-lg font-semibold mb-4">Ikuti Kami:</p>
+              <div class="flex justify-center space-x-4">
+                <a href="https://www.instagram.com/pionirbeton_industri/" class="hover:opacity-75">
+                <img src="aset/instagram.png" alt="Instagram" class="w-10 h-auto">
+              </a>
+              <a href="https://www.youtube.com/@pionirbetonindustri7077" class="hover:opacity-75 my-1">
+                <img src="aset/youtube.png" alt="YouTube" class="w-10 h-auto">
+              </a>
+              <a href="https://www.tiktok.com/@pionirbetonindustri" class="hover:opacity-75">
+                <img src="aset/tiktok.png" alt="TikTok" class="w-10 h-auto">
+              </a>
+              </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="text-center">
+              <p class="text-lg font-semibold mb-4">Informasi:</p>
+              <div class="flex flex-col space-y-2">
+                <a href="#" class="text-sm text-gray-600 hover:underline">Tentang Kami</a>
+                <a href="#" class="text-sm text-gray-600 hover:underline">Syarat & Ketentuan</a>
+                <a href="#" class="text-sm text-gray-600 hover:underline">Kebijakan Privasi</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Copyright -->
+          <p class="text-sm text-gray-500 text-center mt-12">© 2024 PT Tiro Abadi Perkasa</p>
+        </div>
+      </footer>
+  </body>
+
+</html>
+
